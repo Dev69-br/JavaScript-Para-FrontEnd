@@ -1,22 +1,22 @@
 
 
-const buttons= document.getElementById('buttons');
+const buttons = document.getElementById('buttons');
 
 let semafaro = document.querySelector('#img');
 
-const trocaimg = (event) =>{
-    if(event.target.id === 'red'){
+const trocaimg = (event) => {
+    if (event.target.id === 'red') {
         semafaro.src = 'vermelho.png'
     }
-    else if(event.target.id === 'yellow'){
+    else if (event.target.id === 'yellow') {
         semafaro.src = 'amarelo.png'
     }
-    else if(event.target.id === 'green'){
+    else if (event.target.id === 'green') {
         semafaro.src = 'verde.png'
     }
-    else if(event.target.id === 'automatic'){
-        
+    else if (event.target.id === 'automatic') {
+
     }
 }
 
-buttons.addEventListener('click',trocaimg)
+buttons.addEventListener('click', trocaimg)
