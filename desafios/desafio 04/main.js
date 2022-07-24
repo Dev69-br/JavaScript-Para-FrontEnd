@@ -3,20 +3,34 @@
 const buttons = document.getElementById('buttons');
 
 let semafaro = document.querySelector('#img');
+let colorIndex = 0
 
-const trocaimg = (event) => {
-    if (event.target.id === 'red') {
-        semafaro.src = 'vermelho.png'
-    }
-    else if (event.target.id === 'yellow') {
-        semafaro.src = 'amarelo.png'
-    }
-    else if (event.target.id === 'green') {
-        semafaro.src = 'verde.png'
-    }
-    else if (event.target.id === 'automatic') {
 
+
+const nextIndex = () => {
+    if(colorIndex < 2){
+       colorIndex++ 
+    }else{
+        colorIndex = 0
     }
+    
 }
 
-buttons.addEventListener('click', trocaimg)
+const changecolor = () =>{
+    const cores = ['red','yellow','green'];
+    const cor = cores[colorIndex]
+    turnOn[cor]();
+    nextIndex();
+}
+
+const traffic = (event) => {
+    turnOn[event.target.id]();
+}
+
+const turnOn = {
+    'red':  () => semafaro.src = 'vermelho.png',
+    'yellow':  () => semafaro.src = 'amarelo.png',
+    'green':  () => semafaro.src = 'verde.png',
+    'automatic':  () => setInterval(changecolor,1000)
+}
+buttons.addEventListener('click', traffic)
